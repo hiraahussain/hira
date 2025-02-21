@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hira</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #e0f7fa;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-size: 16px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas: 
+                "header"
+                "nav"
+                "content"
+                "footer";
+            grid-template-rows: auto 1fr auto auto;
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            grid-area: header;
+            background: linear-gradient(to right, #2196f3, #8e24aa);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            font-size: 34px;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            grid-area: nav;
+            background: #ffffff;
+            color: #333;
+            padding: 20px;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        nav:hover {
+            background: #f1f1f1;
+        }
+
+        .content {
+            grid-area: content;
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            gap: 30px;
+            padding: 20px;
+            min-height: 60vh;
+        }
+
+        .sidebar {
+            background: #4caf50;
+            padding: 30px;
+            font-size: 18px;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+
+        .sidebar:hover {
+            transform: translateY(-10px);
+            background: #388e3c;
+        }
+
+        .main-content {
+            background: linear-gradient(to right, #42a5f5, #81c784);
+            padding: 40px;
+            font-size: 24px;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .main-content:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(to right, #42a5f5, #388e3c);
+        }
+
+        footer {
+            grid-area: footer;
+            background: #2196f3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            color: #8e24aa;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff4081;
+        }
+
+        button {
+            background-color: #8e24aa;
+            color: white;
+            font-size: 16px;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4081;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "header"
+                    "nav"
+                    "content"
+                    "footer";
+            }
+
+            header {
+                font-size: 28px;
+                padding: 30px;
+            }
+
+            nav {
+                font-size: 18px;
+                padding: 15px;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            footer {
+                font-size: 16px;
+            }
+
+            .main-content {
+                padding: 30px;
+                font-size: 22px;
+            }
+
+            .sidebar {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="fade-in">Header</header>
+        <nav class="fade-in">Navigation Menu</nav>
+        <div class="content">
+            <aside class="sidebar fade-in">Sidebar Content</aside>
+            <section class="main-content fade-in">Main Content</section>
+            <aside class="sidebar fade-in">Sidebar Content</aside>
+        </div>
+        <footer class="fade-in">Footer</footer>
+    </div>
+</body>
+</html>
